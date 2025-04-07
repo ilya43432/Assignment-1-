@@ -1,0 +1,61 @@
+> Assignment 1 - Systems Programming 2
+> Name - Ilya Bagaev | ID - 324401132 | Email - iliyacod@gmail.com
+--------------------------------------------
+
+# Graph 
+> Graph.cpp - 
+In this file, i implemented the required functions for the graph class using the helper class "AdjListnode",
+as well as the Edge struct. 
+Moreover, i implemented a good amount of helper functions that will help me throughout this
+assignment. These functions are - 
+bool isEmpty() const; (A check to see whether the graph is Empty, this will help me throw the exact exception when needed).
+int getNumVertices() const; (returns the total number of vertices that the graph can hold).
+const AdjList& getAdjList(int vertex) const; (returns the adjancey list, which will help with traversals).
+AdjListNode* getAdjListHead(int vertex) const; (returns the head of an adjancey list)
+bool check_connected() const; (a check to see if the graph is connected).
+bool check_negative_edge() const; (a check to see whether the graph has negative edges, for dijkstra reasons).
+int count_edges() const; (functions that counts the total edges for us, since the graph is undirected and in case we have a tree, 
+we have to divide the total amount by 2 since a tree has n -1 edges.)
+bool vertex_in_graph(int vertex) const; (a check to see if a vertex is valid)
+int calculate_tree_weight(const Graph& tree_Graph) const; (mst validation)
+
+> Graph.hpp -
+Defines the core data structures for graph representation including AdjListNode for adjacency list nodes, Edge for representing edges, 
+and the main Graph class that encapsulates graph functionality.
+Declares public interface methods for graph manipulation and inspection.
+
+--------------------------------------------
+# Algorithms 
+
+> Algoriths.cpp - 
+Breadth-First Search (BFS): Traverses a graph level by level
+Depth-First Search (DFS): Explores as far as possible along each branch before backtracking
+Dijkstra's Algorithm: Finds shortest paths from a source vertex to all other vertices
+Kruskal's Algorithm: Finds a minimum spanning tree by considering edges in ascending weight order
+Prim's Algorithm: Builds a minimum spanning tree by growing a single tree from a source vertex
+
+All of these functions are in the Algorithms class, they are calssified as static so that i don't 
+have to create an instance of Algorithms everytime i use one of these functions. 
+
+> Algorithms.hpp - 
+In here i declare the Algorithms class 
+this file also includes manual implementations of data structures
+such as a Queue for The BFS/DFS algorithms, Priority Queue for
+Dijkstra's algorithm and mst(minimum spanning tree) algorithms(kruskal, prim).
+the kruskal's algortithm also uses my manually implemented uninon find data structure.
+--------------------------------------------
+# tests.cpp 
+this file covers a bunch of tests such as - 
+-basic graph operations (creation, edge addition/removal)
+-Graph property checks (connectivity, edge count)
+-BFS and DFS traversal trees
+-Shortest path calculation using Dijkstra's algorithm
+-Minimum spanning tree generation using Kruskal's algorithm
+-edge cases and error handling for all algorithms
+
+# main.cpp 
+In this file i demonstrate the usage of my graph and algorithm implementations.
+i print the result to show the functionality and the output difference between 
+different operations.
+this has also good use in checking whether valgrind may detect any memory leaks, which turned out good 
+and the tests were passed succesfully.
